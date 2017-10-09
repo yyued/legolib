@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>pageSlider</title>
+    <style>
+        html,body {
+            height: 100%;
+            width: 100%;
+        }
+        html.lastPage, html.lastPage body {
+            height: auto;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-size: 20px;
+        }
+        .page {
+            position: relative;
+            height: 100%;
+        }
+        .section {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .section:nth-of-type(1) {
+            color: red;
+            /*background: #736767;*/
+        }
+        .section:nth-of-type(2) {
+            color: blue;
+            /*background: #74c8bf;*/
+        }
+        .section:nth-of-type(3) {
+            position: relative;
+            color: green;
+            /*background: #cc65c0;*/
+        }
+        .section.is-out {
+            display: none;
+        }
+        .section.is-in {
+            display: block;
+        }
+
+        .section.is-in h2, .section.is-in .text {
+            animation: titleIn ease-out .8s .2s both;
+            -webkit-animation: titleIn ease-out .8s .2s both;
+        }
+        .section.is-out h2, .section.is-out .text {
+            animation: titleOut ease-out .8s .2s both;
+            -webkit-animation: titleOut ease-out .8s .2s both;
+        }
+
+        @keyframes titleIn {
+            0% {
+                -webkit-transform: translate3d(0,-7.4074rem,0);
+                transform: translate3d(0,-7.4074rem,0)
+            }
+
+            to {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+        }
+
+        @-webkit-keyframes titleIn {
+            0% {
+                -webkit-transform: translate3d(0,-7.4074rem,0);
+                transform: translate3d(0,-7.4074rem,0)
+            }
+
+            to {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+        }
+        @keyframes titleOut {
+            0% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+
+            to {
+                -webkit-transform: translate3d(0,-7.4074rem,0);
+                transform: translate3d(0,-7.4074rem,0)
+            }
+        }
+        @-webkit-keyframes titleOut {
+            0% {
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0)
+            }
+
+            to {
+                -webkit-transform: translate3d(0,-7.4074rem,0);
+                transform: translate3d(0,-7.4074rem,0)
+            }
+        }
+
+        .debug {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            background: red;
+            color: #fff;
+            width: 100%;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug"></div>
+    <div class="page">
+        <div class="section is-in">
+            <h2>111</h2>
+        </div>
+        <div class="section is-out">
+            <h2>222</h2>
+        </div>
+        <div class="section is-out">
+            <h2>333</h2>
+        </div>
+    </div>
+
+    <script src="./js/index.js?t=1507542641875"></script>
+</body>
+</html>

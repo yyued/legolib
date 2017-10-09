@@ -1,0 +1,101 @@
+@import "./images";
+.lego-tabView {
+    position: relative;
+}
+.lego-tabView__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: #fff;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    overflow: hidden;
+    user-select: none;
+    padding-right: 0.5rem;
+    overflow: hidden;
+    &:after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        right: 0.5rem;
+        height: 0.8rem;
+        width: 0.4rem;
+        z-index: 100;
+        background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(255,255,255,0)),color-stop(100%,#fff));
+    }
+}
+.lego-tabView__navWrap {
+    position: relative;
+    height: 100%;
+    box-sizing: content-box;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding-bottom: 0.1rem;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+.lego-navList {
+    // height: 0.8rem;
+
+    white-space: nowrap;
+    font-size: 0;
+    li {
+        display: inline-block;
+        font-size: 0.3rem;
+        text-align: center;
+        transition: all 0.25s;
+        a,
+        span {
+            display: inline-block;
+            padding: 0 0.4rem;
+            color: #666;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+        &.is-current {
+            a,
+            span {
+                color: #fa0;
+            }
+            font-weight: 400;
+        }
+    }
+}
+.lego-navMore {
+    height: 100%;
+    width: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: #fff;
+    &:after {
+        content: '';
+        @extend %base64-icon-more.png;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+.lego-tabView__panel {
+    padding-top: 0.8rem;
+    display: none;
+    &.is-show {
+        display: block;
+    }
+}
+.lego-navLine {
+    position: absolute;
+    left: 50%;
+    bottom: 0.1rem;
+    bottom: 0.1rem;
+    width: 1rem;
+    height: 0.02rem;
+    background: #fa0;
+    transform: translateX(-50%);
+}

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+
+.legoLoading{
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity ease .4s;
+    font-size: 0;
+    text-align: center;
+    z-index: 1000000;
+    &.is-legoLoadingComplete{
+        opacity: 0;
+        filter: alpha(opacity = 0)
+    }
+    &.ext-legoLoadingDefault{
+        .legoLoading__con{
+            width: 120px;
+        }
+        .legoLoading__loader{
+            width: 50px;
+            height: 50px;
+            background-image: url('https://s1.yy.com/ued_web_static/common/img/loading2.gif');
+            background-size: 100% 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+.legoLoading__content{
+    display: inline-block;
+    _display: inline;
+    vertical-align: middle;
+    text-align: center;
+
+}
+.legoLoading__pos{
+    width: 0;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+.legoLoading__icon {
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.legoLoading__text{
+    font-size: 12px;
+    line-height: 25px;
+}

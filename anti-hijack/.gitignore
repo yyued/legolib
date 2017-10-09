@@ -1,0 +1,6 @@
+**.vscode
+**.zip
+**/dist
+**/src/sass/_img.scss
+**/lego-lib
+**/img_old

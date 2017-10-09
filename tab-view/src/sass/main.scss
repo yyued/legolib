@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import "base/base";
+
+body {
+    font: $b-font-weight #{$b-font-size}/#{$b-line-height} $b-font-family;
+    color: $c-text;
+    background-color: #f6f6f6;
+    a {
+        text-decoration: none;
+        color: nth($c-link, 1);
+        &:hover {
+            text-decoration: underline;
+            color: nth($c-link, 2);
+        }
+    }
+}
+
+// Coding...

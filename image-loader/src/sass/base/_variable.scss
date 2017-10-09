@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+/*
+ * @file: 全局变量配置
+ * @update: 2016-07-27 10:51:13
+ */
+
+/* 排版配置 */
+
+/*
+ * 字体策略
+ * 1. 默认：使用无衬线体，OSX中文使用苹方与冬青黑体，Windows中文使用微软雅黑，Linux中文使用文泉雅黑；
+ * 2. 黑体：通过字体辅助类.u-heiti 或者 @extend %u-heiti来调用；
+ * 3. 宋体：通过字体辅助类.u-songti 或者 @extend %u-songti来调用；
+ * 3. 楷体：通过字体辅助类.u-kaiti 或者 @extend %u-kaiti来调用；
+ * 4. 参考链接：http://www.zhihu.com/question/19911793   http://zenozeng.github.io/fonts.css/
+ */
+$base-font-size       : 12px !default; // 字号
+$base-font-family     : "San Francisco", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif !default; // 字体族
+$base-font-weight     : 300 !default; // 字重
+$base-line-height     : 1.5 !default; // 行高
+$base-link-decoration : underline !default; // 链接下划线
+
+/* 颜色配置 */
+$base-text-color       : #333 !default; // 文本颜色
+$base-bg-color         : #fff !default; // 背景颜色
+$base-link-color       : #333 #fa0 !default; // 链接颜色[default，hover]
+

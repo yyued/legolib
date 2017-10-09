@@ -1,0 +1,10 @@
+{
+    "version": "1.0.43",
+    "type": "Mobile",
+    "assets": "",
+    "es6": "true",
+    "webp": "false",
+    "legolib": false,
+    "alias": {},
+    "global": {}
+}

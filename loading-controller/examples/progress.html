@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title> index </title>
+    <link href="./css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div class="line"></div>
+    <script src="http://uedfe.yypm.com/assets/lego-components/lego-loading/js/lego-loading.min.js" charset="utf-8"></script>
+    <script type="text/javascript">
+    window.onload=function(){
+        var time = new Date().getTime();
+        window.loading = new LegoLoading({
+            theme:'clean',
+            text:'当前进度：${progress}',
+            progress:function (progress) {
+                document.querySelector('.line').style['width'] = document.body.clientWidth * (progress / 100 ) + 'px';
+                document.querySelector('.line').innerHTML=progress;
+                if(progress == 90){
+                    console.log('总时间'+(new Date().getTime() - time) / 1000);
+                }
+            },
+            complete: function () {
+                console.log('已经完成')
+            },
+            debug:true
+        })
+
+        loading.start();
+        loading.done();
+    }
+    </script>
+</body>
+</html>

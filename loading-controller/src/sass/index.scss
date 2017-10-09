@@ -1,0 +1,25 @@
+@charset "utf-8";
+/*
+ * @file: 入口SASS
+ * @author:
+ * @update:
+ */
+@import "base/base"; // 样式基础设置
+@import "img"; // sprites切片占位符
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    // background-color: #000;
+    text-align: center;
+}
+.line {
+    width: 0;
+    height: 20px;
+    background: linear-gradient(left, red,blue);
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #fff;
+}

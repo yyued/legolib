@@ -1,0 +1,56 @@
+.legoToast {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	z-index: 999;
+	transform: translate(-50%, -50%);
+}
+
+.legoToast-inner {
+	width: auto;
+	background: rgba(0, 0, 0, 0.8);
+	border-radius: 20px;
+	color: white;
+	padding: 0 16px;
+	height: 32px;
+	line-height: 32px;
+	font-size: 14px;
+	opacity: 0;
+	&.is-toastShow {
+		animation-name: toastshow;
+		animation-delay: 0s;
+		animation-duration: 0.4s;
+		animation-timing-function: cubic-bezier(0,.33,.2,1);
+		animation-fill-mode: forwards;
+	}
+	&.is-toastHide {
+		animation-name: toasthide;
+		animation-delay: 0s;
+		animation-duration: 0.4s;
+		animation-timing-function: cubic-bezier(0,.33,.2,1);
+		animation-fill-mode: forwards;
+	}
+}
+
+@keyframes toastshow {
+	from {
+		opacity: 0;
+		transform: scale(1.185);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes toasthide {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.815);
+	}
+}
+

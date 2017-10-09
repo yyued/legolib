@@ -1,0 +1,35 @@
+.smartBannerTips,
+.appCallTips {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+}
+
+.appCallTips-img {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    width: 150px;
+    height: 175px;
+    background-image: url(./img/share-tips.png);
+    background-size: 100% 100%;
+}
+.smartBannerTips-content {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 17px;
+    color: #fff;
+}
+.swipe-down {
+    display: inline-block;
+    vertical-align: bottom;
+    margin: 0 0 -3px 10px;
+    width: 32px;
+    height: 32px;
+    background-image: url(./img/swipe-down.png);
+    background-size: 100% 100%;
+}

@@ -1,0 +1,184 @@
+.lego-alertView__overlay {
+    -webkit-user-select: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10600;
+    visibility: hidden;
+    opacity: 0;
+    transition-duration: 400ms;
+    &.ext-visible {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.lego-alertView {
+    & * {
+        font-family: "San Francisco", "Helvetica Neue", Helvetica, sans-serif;
+        font-weight: 300;
+    	-webkit-box-sizing: border-box;
+    	   -moz-box-sizing: border-box;
+    			box-sizing: border-box;
+    	-webkit-appearance: none;
+    			appearance: none;
+    	-webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+    width: 6rem;
+    position: fixed;
+    z-index: 11000;
+    left: 50%;
+    margin-left: -3rem;
+    top: 50%;
+    text-align: center;
+    border-radius: 0.35rem;
+    opacity: 0;
+    transform: translate3d(0, -50%, 0) scale(1.185);
+    color: #000;
+    display: none;
+    animation-duration: 300ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    font-weight: 400;
+
+    &.modal-in {
+        animation-name: show;
+    }
+    &.modal-out {
+        animation-name: hide;
+    }
+}
+.lego-alertView__content {
+    padding: 0.35rem;
+    border-radius: 0.35rem 0.35rem 0 0;
+    position: relative;
+    background: #f4f4f4;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        right: auto;
+        top: auto;
+        height: 1px;
+        width: 100%;
+        background-color: #b5b5b5;
+        display: block;
+        z-index: 15;
+        transform-origin: 50% 100%;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .lego-alertView__content:after {
+        transform: scaleY(0.5);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .lego-alertView__content:after {
+        transform: scaleY(0.33);
+    }
+}
+.lego-alertView__title {
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+}
+
+.lego-alertView__text {
+    font-size: 14px;
+    margin-top: 0.1rem;
+}
+.lego-alertView__action {
+    height: 0.9rem;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.lego-alertView__btn {
+    -webkit-user-select: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 0 0.25rem;
+    height: 0.9rem;
+    font-size: 16px;
+    line-height: 0.9rem;
+    text-align: center;
+    color: #0894ec;
+    font-weight: 500;
+    background: #f4f4f4;
+    display: block;
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: #b5b5b5;
+        z-index: 15;
+        transform-origin: 100% 50%;
+    }
+    &:active {
+        background: #e3e3e3;
+        &:after {
+            display: none;
+        }
+        + .lego-alertView__btn {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    &:first-child {
+        border-radius: 0 0 0 0.35rem;
+        &:after {
+            display: none;
+        }
+    }
+    &:last-child {
+        border-radius: 0 0 0.35rem 0;
+    }
+    &:first-child:last-child {
+        border-radius: 0 0 0.35rem 0.35rem;
+    }
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .lego-alertView__btn:after {
+        transform: scaleX(0.5);
+    }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 3) {
+    .lego-alertView__btn:after {
+        transform: scaleX(0.33);
+    }
+}
+
+
+@keyframes show {
+    100% {
+        opacity: 1;
+        transform: translate3d(0, -50%, 0) scale(1);
+    }
+}
+@keyframes hide {
+    100% {
+        opacity: 0;
+        transform: translate3d(0, -50%, 0) scale(0.815);
+    }
+}
