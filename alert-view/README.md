@@ -1,23 +1,20 @@
-# lego-modal
+# alert-view
 
 ## 说明
 模拟ios原生confirm和alert
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
-## DEMO
-* [confirm & alert](http://uedfe.yypm.com/assets/lego-components/lego-modal/index.html)
 
 ## 使用
-1.引入
-```javascript
-import LegoModal from './dist/lego-modal.min.js';
-```
 
-2.调用
+### 模块引入方式
+
 ```javascript
-var modal = new LegoModal();
+import AlertView from 'legolib/alert-view/index.js';
+
+var modal = new AlertView();
 
 // alert modal
 modal.alert({
@@ -37,6 +34,17 @@ modal.confirm({
     }
 });
 ```
+
+### 外链引入方式
+
+全局实例：`LegoAlertView`
+
+```html
+<script src="legolib/alert-view/index.js"></script>
+
+var modal = new LegoAlertView();
+```
+
 
 
 ## API

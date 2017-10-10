@@ -1,4 +1,4 @@
-# lego-appCall
+# app-call
 
 ## 说明
 
@@ -21,12 +21,12 @@ web页面调起APP，支持手动调起与自动调起两种模式。
 ----
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
 ## 逻辑图
 
-![逻辑图](http://uedfe.yypm.com/assets/lego-components/lego-appCall/appCall.jpg)
+![逻辑图](https://user-images.githubusercontent.com/1295348/31385397-bbbb52ee-ad88-11e7-94fa-abfe63a86d7b.jpg)
 
 ## 推荐使用方案
 
@@ -34,17 +34,11 @@ web页面调起APP，支持手动调起与自动调起两种模式。
 
 此种方案的好处在于当前浏览器环境无法满足调起APP的条件时，使用其他浏览器打开能自动调起APP。
 
-
-1、引入组件
-````javascript
-import LegoAppCall from './dist/lego-appCall.min.js';
-````
-
-2、实例化
-
 当参数`trigger`留空或者不写时，将执行自动调起APP.
 
 ````javascript
+import LegoAppCall from 'legolib/app-call/index.js';
+
 new LegoAppCall({
     schemaUrl          : 'ourtimes://',
     androidDownloadUrl : 'http://www.mezhibo.com',
@@ -56,13 +50,9 @@ new LegoAppCall({
 
 当APP不支持universal link，或者不使用universal link页面时。
 
-1、引入组件
 ````javascript
-import LegoAppCall from './dist/lego-appCall.min.js';
-````
+import LegoAppCall from 'legolib/app-call/index.js';
 
-2、实例化
-````javascript
 new LegoAppCall({
     trigger            : '[data-role="appCall"]',
     schemaUrl          : 'ourtimes://',

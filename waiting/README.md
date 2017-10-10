@@ -1,26 +1,20 @@
-# lego-waiting
+# waiting
 
 ## 说明
 
 用来提示一些后台活动（像Ajax请求）和阻止在这个活动期间的任何用户操作。
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
-## DEMO
-
-![DEMO](http://uedfe.yypm.com/assets/lego-components/lego-waiting/img/lego-waiting-demo.png)
 
 ## 使用
 
-1、引入组件
-````javascript
-import LegoWaiting from './dist/lego-waiting.min.js';
-````
+### 模块引入方式
 
-2、实例化
 ````javascript
+import LegoWaiting from 'legolib/waiting/index.js';
 var waiting = new LegoWaiting({
     title      : '加载中',
     extraclass : 'extraclass'
@@ -30,8 +24,18 @@ waiting.open();
 waiting.close(); // 手动关闭
 waiting.text('继续加载'); // 修改文案
 waiting.open(); // 再次打开
-
 ````
+
+
+### 外链引入方式
+
+全局实例：`LegoWaiting`
+
+```html
+<script src="legolib/waiting/index.js"></script>
+
+var waiting = new LegoWaiting(config);
+```
 
 ## API
 

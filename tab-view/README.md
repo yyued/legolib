@@ -1,54 +1,35 @@
-# lego-tabView
+# tab-view
 
 ## 说明
 移动端tabView导航栏，支持滑动效果。
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
-## DEMO
-![DEMO](http://uedfe.yypm.com/assets/lego-components/lego-tabView/tabView.jpg)
 
 ## 使用
-1、引入组件
-````javascript
-import LegoTabView from './export/lego-tabView.js';
-````
 
-2、实例化
+### 模块引入方式
+
 ```javascript
+import LegoTabView from 'legolib/tab-view/index.js';
+
 let navConfig = [
     {
         title: '推荐',
         attr: 'data-id="11" data-role="first"'
     },
     {
-        title: '音乐'
-    },
-    {
-        title: '搞笑',
-        attr: 'data-id="11" data-index="first"'
-    },
-    {
-        title: '脱口秀'
-    },
-    {
         title: '一起看',
         attr: 'data-id="11" data-index="test"'
     },
     {
-        title: '百度',
-        link: 'https://www.baidu.com/'
+        title: '音乐'
     },
     {
-        title: '户外2'
+        title: 'YY',
+        link: 'https://www.yy.com/'
     },
-    {
-        title: '摄影2'
-    },
-    {
-        title: '旅行'
-    }
 ];
 
 var tabView = new LegoTabView({
@@ -61,8 +42,19 @@ var tabView = new LegoTabView({
 	}
 
 });
-
 ```
+
+
+### 外链引入方式
+
+全局实例：`LegoTabView`
+
+```html
+<script src="legolib/tab-view/index.js"></script>
+
+var tab = new LegoTabView(config);
+```
+
 
 ## API
 ### 方法

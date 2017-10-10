@@ -1,27 +1,19 @@
-# lego-toast
+# toast
 
 ## 说明
 
 toast是一种轻量的提示，在页面中间显示，并且会在2秒(默认值，可修改)之后自动消失。可以用来显示一些不会打断用户操作的提示。
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
-
-## DEMO
-
-![DEMO](http://uedfe.yypm.com/assets/lego-components/lego-toast/img/lego-toast-demo.png)
 
 ## 使用
 
-**→ step 1:  **引入组件
+### 模块引入方式
 
 ````javascript
-import LegoToast from './dist/lego-toast.min.js';
-````
-
-**→ step 2:  **初始化
-````javascript
+import LegoToast from 'legolib/toast/index.js';
 var toast = new LegoToast({
 	msg        : "操作成功",
 	time       : 2000,
@@ -33,9 +25,18 @@ toast.close(); // 手动关闭
 toast.changeText('change'); // 修改文案
 toast.changeTime(4000); // 修改消失时间
 toast.open(); // 再次打开
-
-
 ````
+
+
+### 外链引入方式
+
+全局实例：`LegoToast`
+
+```html
+<script src="legolib/toast/index.js"></script>
+
+var toast = new LegoToast(config);
+```
 
 ## API
 

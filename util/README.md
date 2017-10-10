@@ -1,18 +1,18 @@
-# lego-util
+# util
 
 ## 说明
 
 常用工具集，包括环境检测、信息获取等部分。
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
 
 ## 使用
 
 ````javascript
-import util from './dist/lego-util.min.js';
+import util from 'legolib/util/index.js';
 util.isIE(8);
 // => 如果当前浏览器为IE8则返回true, 否则返回false
 ````

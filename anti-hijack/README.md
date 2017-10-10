@@ -19,14 +19,29 @@ web HTTP防劫持组件。
 
 注意：为了最大化的防劫持，请将脚本放在头部（尽量靠最前面）
 
+### 模块引入方式
+
 ````javascript
 import antiHijack from 'legolib/anti-hijack/index.js';
+
 new antiHijack({
     reportUrl: 'http://xxx.com/xxx.png', // 劫持上报接口，通常是一个图片链接
     blackList: ['61.160.200.252'], // 自定义黑名单
     whiteList: ['yy.com'] // 自定义白名单
 });
 ````
+
+### 外链引入方式
+
+全局实例：`LegoAntiHijack`
+
+```html
+<script src="legolib/anti-hijack/index.js"></script>
+
+new LegoAntiHijack({
+
+});
+```
 
 ## API
 

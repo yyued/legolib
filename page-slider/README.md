@@ -1,17 +1,12 @@
-# lego-pageSlider
+# page-slider
 
 ## 说明
 
 简单的页面滚动控制器，监听页面垂直和水平方向的滚动。
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
-
-
-## DEMO
-
-![DEMO](http://legox.yy.com/assets/lego-components/lego-pageSlider/img/qrcode.png)
 
 
 ## 使用
@@ -32,10 +27,10 @@
 </div>
 ````
 
+### 模块引入方式
 
 ````javascript
-// 模块式引入
-import Slider from './dist/lego-pageSlider.min.js';
+import Slider from 'legolib/page-slider/index.js';
 
 var pageslider = new Slider({
     container: ".page",
@@ -57,13 +52,16 @@ var pageslider = new Slider({
 });
 ````
 
-````html
-<!-- 外链引入 -->
-<script src="./dist/lego-pageSlider.min.js"></script>
-<script>
-var pageslider = new legoPageSlider(config);
-</script>
-````
+
+### 外链引入方式
+
+全局实例：`LegoPageSlider`
+
+```html
+<script src="legolib/page-slider/index.js"></script>
+
+var modal = new LegoPageSlider(config);
+```
 
 
 ## API

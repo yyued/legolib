@@ -1,23 +1,21 @@
-# lego-loadingController
+# loading-controller
 
 ## 说明
 
 简单易用的页面加载loading，可控制加载进度。
 
 - 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-- 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 - 本组件无第三方插件依赖；
 - 本组件兼容`ie8+`
 
-## DEMO
-
-- theme为`default`：[DEMO](http://uedfe.yypm.com/assets/lego-components/lego-loading/_index.html "legoLoading")
-- theme为`clean`：[DEMO](http://uedfe.yypm.com/assets/lego-components/lego-loading/progress.html "legoLoading")
 
 ## 使用
 
+### 模块引入方式
+
 ```javascript
-var LegoLoading = require('./dist/lego-loading.min.js');
+var LegoLoading = require('legolib/loading-controller/index.js');
 var config = {
     theme    : 'default',
     text     : '当前进度：${progress}',
@@ -33,16 +31,19 @@ loading.start();
 loading.done();
 ```
 
-**注意：** 如果是外链引入的，则使用全局的`LegoLoading`创建对象实例,例如
+
+### 外链引入方式
+
+全局实例：`LegoLoadingController`
 
 ```html
-<script src="./dist/lego-loading.min.js"></script>
-<script>
-var loading = new LegoLoading(config)
+<script src="legolib/loading-controller/index.js"></script>
+
+var loading = new LegoLoadingController();
 loading.start();
 loading.done();
-</script>
 ```
+
 
 ## API
 

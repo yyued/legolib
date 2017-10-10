@@ -1,18 +1,19 @@
-# lego-wechatShare
+# wechat-share
 
 ## 说明
 
 微信分享JS SDK的封装；当前使用微信JS-SDK版本：`//res.wx.qq.com/open/js/jweixin-1.2.1.js`。
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
-* 本组件使用 [legoFlow](http://uedfe.yypm.com/md/book/LegoFlow/index.html) 进行开发、构建；
+* 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
 ## 使用
 
-1、模块import方式
+### 模块引入方式
+
 ````javascript
-import wxShare from './dist/LegoWechatShare.min.js';
+import wxShare from 'legolib/wechat-share/index.js';
 new wxShare({
     type: 'bi',
     title: '放我出去装X',
@@ -21,17 +22,14 @@ new wxShare({
 });
 ````
 
-2、传统外链引入方式
+### 外链引入方式
+
+全局实例：`LegoWechatShare`
+
 ````html
-<script src="./dist/LegoWechatShare.min.js"></script>
-<script>
-var share = new LegoWechatShare({
-    type: 'bi',
-    title: '放我出去装B',
-    desc : '金币，绑钻，宝石箱，你想要的统统都在这里!',
-    img  : 'http://bi.duowan.com/source/pcindex/img/part1/bg1.png',
-})
-</script>
+<script src="legolib/wechat-share/index.js"></script>
+
+var share = new LegoWechatShare(config);
 ````
 
 ## API
