@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+@import "base/base";
+
+body {
+    font: $b-font-weight #{$b-font-size}/#{$b-line-height} $b-font-family;
+    color: $c-text;
+    background-color: #f6f6f6;
+    a {
+        text-decoration: none;
+        color: nth($c-link, 1);
+        &:hover {
+            text-decoration: underline;
+            color: nth($c-link, 2);
+        }
+    }
+}
+
+// Coding...
+#main {
+    height: 100%;
+    background: #efefef;
+}
+
+.lego-tabView__panel {
+    &:nth-child(1) {
+        background: #ccc;
+    }
+    &:nth-child(2) {
+        background: #f00;
+    }
+    &:nth-child(3) {
+        background: #ff0;
+    }
+    &:nth-child(4) {
+        background: #f0f;
+    }
+    &:nth-child(5) {
+        background: #0f0;
+    }
+    &:nth-child(6) {
+        background: #0ff;
+    }
+    &:nth-child(7) {
+        background: #ff0;
+    }
+    &:nth-child(8) {
+        background: #00f;
+    }
+    &:nth-child(9) {
+        background: #f0f;
+    }
+    &:nth-child(10) {
+        background: #0f0;
+    }
+    &:nth-child(11) {
+        background: #0ff;
+    }
+    &:nth-child(12) {
+        background: #00f;
+    }
+}

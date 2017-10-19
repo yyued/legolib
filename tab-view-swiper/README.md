@@ -1,8 +1,7 @@
-# tab-view
+# tab-view-swiper
 
 ## 说明
-移动端tabView导航栏
-
+移动端tabView导航栏，支持swiper滑动效果。
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
