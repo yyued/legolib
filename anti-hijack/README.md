@@ -38,9 +38,7 @@ new antiHijack({
 ```html
 <script src="legolib/anti-hijack/index.js"></script>
 
-new LegoAntiHijack({
-
-});
+new LegoAntiHijack(config);
 ```
 
 ## API
