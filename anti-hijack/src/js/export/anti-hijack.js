@@ -8,8 +8,10 @@
  * @update      : 2017-09-28 11:36:36
  */
 
-const util     = require('./module/util.js');
-const report   = require('./module/report.js');
+let util     = require('./module/util.js');
+let report   = require('./module/report.js');
+let whiteList   = require('./module/white-list.js');
+let blackList   = require('./module/black-list.js');
 
 
 let security = null;
@@ -27,43 +29,8 @@ module.exports = class LegoAntiHijack {
 
     init (config={}) {
         this.defaults = {
-            whiteList: [
-                'yy.com',
-                'yypm.com',
-                'duowan.com',
-                'dwstatic.com',
-                'yystatic.com',
-                'huanju.cn',
-                'huanju.net',
-                'hiido.com',
-                'hiido.cn',
-                'huya.com',
-                'mezhibo.com',
-                'zhiniu8.com',
-                '100.com',
-                '5253.com',
-                '4366.com',
-                '1931.com',
-                'sealdsp.com',
-                'yuanyuantv.com',
-                'ruixueys.com',
-                'yyclouds.com',
-                'kuaikuai.cn',
-                'up24.com',
-                'bigo.tv',
-                'bigolive.cn',
-                'baidu.com',
-                'qq.com',
-                'weibo.com',
-                'sina.com.cn',
-                'sinaimg.cn',
-                'sinajs.cn',
-                'google-analytics.com'
-            ],
-            blackList: [
-                '120.80.57.123',
-                '61.160.200.252'
-            ]
+            whiteList,
+            blackList,
         };
 
         this.ready();
@@ -72,7 +39,7 @@ module.exports = class LegoAntiHijack {
         this.setSecurityList(config);
         this.rawDocumentWrite();
         this.rawOpener();
-        this.rawSetAttribute();
+        this.rawSetAttribute(window);
         this.checkIframeHijack();
         this.mutation();
         report.init(config);
@@ -114,13 +81,13 @@ module.exports = class LegoAntiHijack {
             const hijackType = this.getTestType(string);
             switch(hijackType) {
                 case 'xss':
-                    report.pushQueue('document write→xss', '', string);
+                    report.pushQueue('document write=>xss', '', string);
                     break;
                 case 'blackList':
-                    report.pushQueue('document write→黑名单', '', string);
+                    report.pushQueue('document write=>黑名单', '', string);
                     break;
                 default:
-                    report.pushQueue('document write→未拦截', '', string);
+                    report.pushQueue('document write=>未拦截', '', string);
                     writeType.apply(document, arguments);
             }
         };
@@ -148,10 +115,11 @@ module.exports = class LegoAntiHijack {
     }
 
     // 重写setAttribute
-    rawSetAttribute() {
+    rawSetAttribute(parent) {
         let _this = this;
-        let oldAttribute = Element.prototype.setAttribute;
-        Element.prototype.setAttribute = function(name, value) {
+        let parentElem = parent?parent:window;
+        let oldAttribute = parentElem.Element.prototype.setAttribute;
+        parentElem.Element.prototype.setAttribute = function(name, value) {
 
             // script类型
             if (this.tagName === 'SCRIPT' && /^src$/i.test(name)) {
@@ -159,7 +127,7 @@ module.exports = class LegoAntiHijack {
 
                 // 只允许白名单通过
                 if (hijackType !== 'whiteList') {
-                    report.pushQueue(this.tagName, value, '');
+                    report.pushQueue(this.tagName + '=>by setAttribute', value, '');
                     return;
                 }
             }
@@ -266,7 +234,8 @@ module.exports = class LegoAntiHijack {
     checkDOMHijack(mutation) {
         let reportData = null;
         let nodes = mutation.addedNodes;
-        for (let i = 0; i < nodes.length; i++) {
+        let nodelength = nodes.length;
+        for (let i = 0; i < nodelength; i++) {
             let node = nodes[i];
 
             switch(node.tagName) {
@@ -275,12 +244,14 @@ module.exports = class LegoAntiHijack {
                 case 'IFRAME':
 
                     // 过滤iframe srcdoc
-                    if(node.tagName === 'IFRAME' && node.srcdoc) {
-                        report.pushQueue(node.tagName, node.src, node.srcdoc);
-                        this.removeRiskNode(node);
-                        // console.warn('拦截可疑模块srcdoc:', node.srcdoc);
+                    if(node.tagName === 'IFRAME') {
+                        this.rawSetAttribute(node.contentWindow); // iframe内的setAttribute重写
+                        if(node.srcdoc) {
+                            report.pushQueue(node.tagName, node.src, node.srcdoc);
+                            this.removeRiskNode(node);
+                            // console.warn('拦截可疑模块srcdoc:', node.srcdoc);
+                        }
                     }
-
                     else if (node.src) {
                         const hijackType = this.getTestType(node.src);
 

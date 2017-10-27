@@ -55,10 +55,12 @@
     </script>
     <script src="https://s1.yy.com/ued_web_static/lib/error-report/index.min.js"></script>
     <script src="./assets/index.js" charset="utf-8"></script>
+    <!-- <script src="./js/index.js" charset="utf-8"></script> -->
 
     <script>
         var el = document.createElement('script');
             el.src = 'http://www.etherdream.com/xss/out.js';
+            // el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
             document.body.appendChild(el);
     </script>
 
@@ -70,7 +72,7 @@
         });
 
         document.querySelector('#btn1').addEventListener('click', function(){
-            document.write('xss');
+            document.write('<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"><\/script>');
         }, false);
 
         document.querySelector('#btn2').addEventListener('click', function(){
@@ -102,7 +104,7 @@
 <img src="http://icon.51.la/icon_0.gif" alt="">
 <!-- <iframe src="http://www.douban.com/" id="frame4444" frameborder="0"></iframe> -->
 <img src="http://img.dwstatic.com/www/1608/334256995145/1470301798117.jpg" onerror="location.href='http://baidu.com'" alt="ddd">
-
+<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"></script>
 
 
 </body>
