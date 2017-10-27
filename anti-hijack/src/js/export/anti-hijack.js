@@ -8,12 +8,12 @@
  * @update      : 2017-09-28 11:36:36
  */
 
-let util     = require('./module/util.js');
-let report   = require('./module/report.js');
-let whiteList   = require('./module/white-list.js');
-let blackList   = require('./module/black-list.js');
+let util      = require('./module/util.js');
+let report    = require('./module/report.js');
+let whiteList = require('./module/white-list.js');
+let blackList = require('./module/black-list.js');
 
-
+let ieVersion = util.getIEVersion();
 let security = null;
 
 module.exports = class LegoAntiHijack {
@@ -24,7 +24,9 @@ module.exports = class LegoAntiHijack {
      * @param {Object} argument 参数对象
      */
     constructor (argument) {
-        this.init(argument);
+        if ( ieVersion === -1 || ieVersion > 8 ) {
+            this.init(argument);
+        }
     }
 
     init (config={}) {
@@ -115,11 +117,10 @@ module.exports = class LegoAntiHijack {
     }
 
     // 重写setAttribute
-    rawSetAttribute(parent) {
+    rawSetAttribute(parent=window) {
         let _this = this;
-        let parentElem = parent?parent:window;
-        let oldAttribute = parentElem.Element.prototype.setAttribute;
-        parentElem.Element.prototype.setAttribute = function(name, value) {
+        let oldAttribute = parent.Element.prototype.setAttribute;
+        parent.Element.prototype.setAttribute = function(name, value) {
 
             // script类型
             if (this.tagName === 'SCRIPT' && /^src$/i.test(name)) {
@@ -333,9 +334,7 @@ module.exports = class LegoAntiHijack {
     // MutationObserver
     mutation() {
         let MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
-        if (!MutationObserver) {
-            return;
-        }
+        if (!MutationObserver) return;
         let observer = new MutationObserver(this.watchDOMChange);
         const options = {
             childList: true,
@@ -346,21 +345,29 @@ module.exports = class LegoAntiHijack {
 
     // 锁住call和apply，防止盗用和重写
     lockCall() {
-        Object.defineProperty(Function.prototype, 'call', {
-            value        : Function.prototype.call,
-            writable     : false,
-            configurable : false,
-            enumerable   : true
-        });
+        try {
+            Object.defineProperty(Function.prototype, 'call', {
+                value        : Function.prototype.call,
+                writable     : false,
+                configurable : false,
+                enumerable   : true
+            });
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     lockApply() {
-        Object.defineProperty(Function.prototype, 'apply', {
-            value        : Function.prototype.apply,
-            writable     : false,
-            configurable : false,
-            enumerable   : true
-        });
+        try {
+            Object.defineProperty(Function.prototype, 'apply', {
+                value        : Function.prototype.apply,
+                writable     : false,
+                configurable : false,
+                enumerable   : true
+            });
+        } catch (e) {
+            console.log(e);
+        }
     }
 
 }
