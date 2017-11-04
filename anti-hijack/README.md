@@ -1,16 +1,16 @@
-# anti-hijack
+# AntiHijack
 
 ## 说明
 
-web HTTP防劫持组件。
+AntiHijack是一个可以拦截http劫持的web component。其核心防御原理如下：
 
-* 【静态防御】重写document.write，屏蔽document.write方式的劫持；
-* 【静态防御】重写opner，屏蔽opner方式的劫持；
-* 【静态防御】锁死call和apply，防止盗用和重写；
-* 【静态防御】重定向iframe劫持；
-* 【动态防御】监控扫描动态插入的DOM：`img`、`script`、`iframe`、`object`；并进行XSS过滤；
-* 黑白名单机制；
-* 自定义劫持上报接口；
+* 重写 `document.write`、`window.open`、`setAttribute`，拦截可疑代码；
+* 锁死 `call` 和 `apply`，防止盗用和重写；；
+* 拦截 `iframe`重定向劫持；
+* `MutationObserver`监听DOM树变化，扫描 `img`、`script`、`iframe`、`object`、`a`，修正漏洞，拦截可疑代码；
+* 域名白名单匹配；
+* xss过滤；
+
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发、构建；
 * 本组件无第三方插件依赖；
