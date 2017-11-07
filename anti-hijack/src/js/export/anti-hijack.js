@@ -83,13 +83,13 @@ module.exports = class LegoAntiHijack {
             const hijackType = this.getTestType(string);
             switch(hijackType) {
                 case 'xss':
-                    report.pushQueue('document write=>xss', '', string);
+                    report.pushQueue('document write', '', string, 'xss');
                     break;
                 case 'blackList':
-                    report.pushQueue('document write=>黑名单', '', string);
+                    report.pushQueue('document write', '', string, '黑名单');
                     break;
                 default:
-                    report.pushQueue('document write=>未拦截', '', string);
+                    // report.pushQueue('document write', '', string, '未拦截');
                     writeType.apply(document, arguments);
             }
         };
@@ -128,7 +128,7 @@ module.exports = class LegoAntiHijack {
 
                 // 只允许白名单通过
                 if (hijackType !== 'whiteList') {
-                    report.pushQueue(this.tagName + '=>by setAttribute', value, '');
+                    report.pushQueue(this.tagName, value, '', 'setAttribute');
                     return;
                 }
             }
@@ -371,4 +371,3 @@ module.exports = class LegoAntiHijack {
     }
 
 }
-

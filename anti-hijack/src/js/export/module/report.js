@@ -4,6 +4,7 @@
  * @update : 2016-08-04 20:38:22
  */
 
+let util = require('./util.js');
 
 module.exports = {
 
@@ -18,16 +19,17 @@ module.exports = {
      * @param {string} url URL
      * @param {string} code 风险代码
      */
-    pushQueue(type, url, code) {
+    pushQueue(type, url, code, remark) {
         // console.log(this.queueArray)
         if (!this.queueArray) {
-            this.sendHijack(type, url, code);
+            this.sendHijack(type, url, code, remark);
         }
         else {
             this.queueArray.push({
-                type : type,
-                url  : url,
-                code : code
+                type   : type,
+                url    : url,
+                code   : code,
+                remark : remark
             });
         }
     },
@@ -39,20 +41,19 @@ module.exports = {
      * @param {string} url URL
      * @param {string} code 风险代码
      */
-    sendHijack(type, url, code) {
-        let hijackType   = type ? type.toLowerCase() : '';
-        let hijackUrl    = url ? url : '';
-        let hijackCode   = code ? code : '';
-        let hijackInfo = `HTTP_hijack&report={"type": "${hijackType}", "url": "${hijackUrl}", "code": "${hijackCode}"}`;
-        let reportUrl = this.reportUrl;
-        // console.warn(hijackInfo);
-        if (reportUrl) {
-            let reportImg = new Image();
-            reportImg.src = reportUrl + '?' + hijackInfo;
-        }
-        else {
-            window.errorReport && window.errorReport(hijackInfo);
-        }
+    sendHijack(type='', hijackUrl='', hijackCode='', remark='') {
+        let hijackType = type.toLowerCase();
+        let url        = encodeURIComponent(document.location.href);
+        let time       = Math.round(new Date().getTime()/1000);
+        let uid        = util.getUrlParam('uid');
+        let ua         = encodeURIComponent(navigator.userAgent);
+        let dw         = window.screen.width + 'x' + window.screen.height; //屏幕分辨率
+        let version    = '0.1.1';
+        let reportInfo = `time=${time}&uid=${uid}&ua=${ua}&dw=${dw}&url=${url}&version=${version}&hijackType=${encodeURIComponent(hijackType)}&hijackUrl=${encodeURIComponent(hijackUrl)}&hijackCode=${encodeURIComponent(hijackCode)}&remark=${encodeURIComponent(remark)}`;
+        let reportUrl  = this.reportUrl||'//ylog.hiido.com/c.gif?act=webhttphijack';
+
+        reportUrl += reportUrl.indexOf('?') < 0 ? `?${reportInfo}` : `&${reportInfo}`;
+        new Image().src = reportUrl;
     },
 
     // 初始化
@@ -61,7 +62,7 @@ module.exports = {
         window.addEventListener('load', () => {
             // console.log(this.queueArray);
             this.queueArray.forEach((value, index) => {
-                this.sendHijack(value.type, value.url, value.code);
+                this.sendHijack(value.type, value.url, value.code, value.remark);
             });
             this.queueArray = null;
         });

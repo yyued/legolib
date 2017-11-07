@@ -15,6 +15,7 @@ module.exports = [
     'sinaimg.cn',
     'sinajs.cn',
     'apple.com',
-    'google-analytics.com'
+    'google-analytics.com',
+    'cnzz.com'
 ];
 

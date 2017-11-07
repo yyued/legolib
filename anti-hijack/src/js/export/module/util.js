@@ -14,7 +14,7 @@ module.exports = {
      */
     getUrlParam(name, url) {
         let re = new RegExp('[\\?&#]' + name + '=([^&#]+)', 'gi');
-        let ma = (url || location.href).match(re);
+        let ma = encodeURIComponent(url || location.href).match(re);
         let strArr;
 
         if (ma && ma.length > 0) {
