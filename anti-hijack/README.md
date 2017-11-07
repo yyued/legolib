@@ -5,11 +5,13 @@
 AntiHijack是一个可以拦截http劫持的web component。其核心防御原理如下：
 
 * 重写 `document.write`、`window.open`、`setAttribute`，拦截可疑代码；
-* 锁死 `call` 和 `apply`，防止盗用和重写；；
+* 锁死 `call` 和 `apply`，防止盗用和重写；
 * 拦截 `iframe`重定向劫持；
 * `MutationObserver`监听DOM树变化，扫描 `img`、`script`、`iframe`、`object`、`a`，修正漏洞，拦截可疑代码；
 * 域名白名单匹配；
 * xss过滤；
+
+----
 
 * 支持**外链**或者**ADM/CMD/commonJS**等多种形式；
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发、构建；
