@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <script>
+    var SmartViewPort=function(e){var t=e||750,n=/Android (\d+\.\d+)/.test(navigator.userAgent),a=document.querySelector('[name="viewport"]');if(a&&document.head.removeChild(a),n){var r=parseFloat(RegExp.$1);if(r>2.3&&4.4>r){var i=parseInt(window.screen.width)/t,o="width="+t+", minimum-scale="+i+", maximum-scale = "+i+", target-densitydpi=device-dpi";this.setContent(o)}else{var o="width="+t+", user-scalable=no";this.setContent(o)}}else{var o="width="+t+", user-scalable=no";this.setContent(o)}};SmartViewPort.prototype.setContent=function(e){var t=document.createElement("meta");t.name="viewport",t.content=e,document.getElementsByTagName("head")[0].appendChild(t)},new SmartViewPort;
+    </script>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="format-detection" content="telephone=no,address=no,email=no">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title> SmartViewPort </title>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <app></app>
+
+
+</body>
+
+</html>
