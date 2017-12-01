@@ -6,7 +6,7 @@
 
 ## 使用
 
-在`head`标签的最上面添加SmartViewPort脚本即可，建议压缩处理。注意，HTML上不需要也不要写meta viewport，不然有可能会导致部分Android刚打开页面时产生抖动。
+在`head`标签的最上面通过内联方式添加SmartViewPort脚本即可，建议压缩处理。注意，HTML上不需要也不要写meta viewport，不然有可能会导致部分Android刚打开页面时产生抖动。
 
 ```html
 <!DOCTYPE html>
