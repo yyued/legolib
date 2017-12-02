@@ -9,8 +9,9 @@
 
 
 ## DEMO
-
 ![qrcode](https://user-images.githubusercontent.com/1295348/33515408-e12ed89a-d79d-11e7-96dc-4cb89d826c6a.jpg)
+
+【注】tab-view没有swiper滑动功能，如需swiper请使用[tab-view-swiper](https://github.com/yyued/legolib/tree/master/tab-view-swiper)
 
 
 ## 使用
