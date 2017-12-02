@@ -1,6 +1,6 @@
 {
-    "version": "1.0.43",
-    "type": "mobile",
+    "version": "1.0.51",
+    "type": "clean",
     "assets": "",
     "es6": true,
     "webp": false,
@@ -17,7 +17,7 @@
     "other": "",
     "dist": "",
     "output": "",
-    "shell": "",
+    "shell": "./shell.js",
     "alias": {},
     "global": {},
     "externals": {},
@@ -31,5 +31,7 @@
     "build.env": "",
     "build.zip": "",
     "img.folder": "",
-    "html.folder": ""
+    "html.folder": "",
+    "js.folder": "",
+    "export.folder": ""
 }

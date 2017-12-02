@@ -1,5 +1,5 @@
 {
-    "version": "1.0.43",
+    "version": "1.0.51",
     "type": "clean",
     "assets": "",
     "es6": true,
@@ -17,7 +17,7 @@
     "other": "",
     "dist": "",
     "output": "",
-    "shell": "",
+    "shell": "./shell.js",
     "alias": {},
     "global": {},
     "externals": {},
@@ -33,5 +33,5 @@
     "img.folder": "",
     "html.folder": "",
     "js.folder": "",
-    "export.folder": "export"
+    "export.folder": ""
 }
