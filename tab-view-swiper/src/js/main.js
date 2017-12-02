@@ -1,4 +1,4 @@
-import FastClick from './lego-lib/fastclick/1.0.6/fastclick';
+import FastClick from './fastclick/1.0.6/fastclick';
 import LegoTabView from './export/lego-tabView.js';
 
 if ('addEventListener' in document) {
