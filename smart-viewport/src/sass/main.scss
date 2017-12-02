@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
+@import "base/_base";
 @import "img";
 
 body {
-    font: 300 12px/1.5 "San Francisco", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font: 300 24px/1.5 "San Francisco", "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     color: #333;
     a {
         text-decoration: none;
@@ -15,4 +16,75 @@ body {
     }
 }
 
-// Coding...
+.layout {
+    font-size: 0;
+    div {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 26px;
+        color: #fff;
+    }
+}
+.item1 {
+    width: 750px;
+    background: #ED7A7D;
+}
+.item2 {
+    width: 375px;
+    background: #AA7DD3;
+}
+.item3 {
+    width: 375px;
+    background: #FBBA5C;
+}
+.item4 {
+    width: 250px;
+    background: #9ACD66;
+}
+.item5 {
+    width: 250px;
+    background: #49BCD6;
+}
+.item6 {
+    width: 250px;
+    background: #9ACD66;
+}
+
+.text{
+    padding: 20px 10px;
+    P {
+        line-height: 1.5;
+        margin-bottom: 10px;
+    }
+    .px24 {
+        font-size: 24px;
+    }
+    .px26 {
+        font-size: 26px;
+    }
+    .px28 {
+        font-size: 28px;
+    }
+    .px30 {
+        font-size: 30px;
+    }
+    .px32 {
+        font-size: 32px;
+    }
+    .px34 {
+        font-size: 34px;
+    }
+    .px36 {
+        font-size: 36px;
+    }
+    .px38 {
+        font-size: 38px;
+    }
+    .px40 {
+        font-size: 40px;
+    }
+}
+
