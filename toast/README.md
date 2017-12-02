@@ -8,6 +8,10 @@ toast是一种轻量的提示，在页面中间显示，并且会在2秒(默认�
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
+## DEMO
+![qrcode- 1](https://user-images.githubusercontent.com/1295348/33515436-7e63d2c8-d79e-11e7-82d7-2b58612b6308.jpg)
+
+
 ## 使用
 
 ### 模块引入方式

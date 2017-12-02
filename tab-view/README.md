@@ -8,6 +8,11 @@
 * 本组件无第三方插件依赖；
 
 
+## DEMO
+
+![qrcode](https://user-images.githubusercontent.com/1295348/33515408-e12ed89a-d79d-11e7-96dc-4cb89d826c6a.jpg)
+
+
 ## 使用
 
 ### 模块引入方式

@@ -6,6 +6,10 @@
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
+## DEMO
+
+![qrcode](https://user-images.githubusercontent.com/1295348/33515426-36cd2c70-d79e-11e7-886d-d73501e2ea77.jpg)
+
 
 ## 使用
 

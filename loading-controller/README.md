@@ -9,6 +9,10 @@
 - 本组件无第三方插件依赖；
 - 本组件兼容`ie8+`
 
+## DEMO
+
+[DEMO](https://legox.org/assets/legolib/loading-controller/index.html)
+
 
 ## 使用
 

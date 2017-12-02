@@ -6,6 +6,10 @@ LegoImgLoader 用于预加载图片、显示图片、加载进度和加载完成
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发构建；
 * 本组件无第三方插件依赖；
 
+## DEMO
+
+[DEMO](https://legox.org/assets/legolib/image-loader/index.html)
+
 ## 使用
 
 ### 模块引入方式

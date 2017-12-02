@@ -5,9 +5,9 @@ var arr = [
     'http://img.dwstatic.com/www/1605/326487013743/1462867118922.jpg',
     'http://img2.dwstatic.com/www/1607/332156260726/1468201777561.png',
     'http://img4.dwstatic.com/www/1607/331553311031/1467598667542.png',
-    'http://ued.yypm.com/project/ued-lab/index/img/pic-interaction.jpg',
-    'http://ued.yypm.com/project/ued-lab/index/img/pic-sdk1.jpg',
-    'http://ued.yypm.com/project/ued-lab/index/img/pic-lego1.jpg'
+    'http://img4.dwstatic.com/www/1512/313433690773/1512180053920.jpg',
+    'http://img2.dwstatic.com/www/1512/313433717915/1512197015168.jpg',
+    'http://img2.dwstatic.com/www/1712/376153051669/1512197872817.jpg'
 ];
 
 new LegoImgLoader(arr, {
