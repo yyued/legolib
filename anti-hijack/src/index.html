@@ -32,8 +32,7 @@
             height: 100%;
         }
     </style>
-
-    <!-- <script src="http://assets.dwstatic.com/base/log/log.js" charset="utf-8"></script> -->
+    <!-- <script src="./assets/index.min.js" charset="utf-8"></script> -->
 
 </head>
 <body ontouchstart="">
@@ -53,37 +52,35 @@
     <script>
 
     </script>
-    <!-- <script src="https://s1.yy.com/ued_web_static/lib/error-report/index.min.js"></script> -->
-    <!-- <script src="./assets/index.js" charset="utf-8"></script> -->
+
     <script src="./js/index.js" charset="utf-8"></script>
 
     <script>
         var el = document.createElement('script');
             // el.src = 'http://www.etherdream.com/xss/out.js';
-            el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
+            el.setAttribute('src', 'https://www.etherdream.com/xss/out.js');
             document.body.appendChild(el);
     </script>
 
     <script>
         // var demo = new LegoAntiHijack({
         //     whiteList: ['yy.com'],
-        //     blackList: ['51.la','61.160.200.252',]
-        //     // reportUrl: 'http://s1.yy.com/ued_web_static/common/img/blank.png'
+        //     blackList: ['51.la','61.160.200.252',],
+        //     reportUrl: 'http://s1.yy.com/ued_web_static/common/img/blank.png'
         // });
 
         // console.log(demo);
 
         document.querySelector('#btn1').addEventListener('click', function(){
-            // document.write('<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"><\/script>');
             var el = document.createElement('script');
-            el.src = 'http://www.etherdream.com/xss/out.js';
+            el.src = 'https://www.etherdream.com/xss/out.js';
             // el.setAttribute('src', 'http://www.etherdream.com/xss/out.js');
             document.body.appendChild(el);
         }, false);
 
         document.querySelector('#btn2').addEventListener('click', function(){
             // document.querySelector('#content').innerHTML = 'kkkk';
-            document.querySelector('#content').innerHTML = '<iframe src="http://www.douban.com/?abc=324" id="frame1" frameborder="0"></iframe>';
+            document.querySelector('#content').innerHTML = '<iframe src="http://jd.com/" id="frame1" frameborder="0"></iframe>';
         }, false);
 
         document.querySelector('#btn3').addEventListener('click', function(){
@@ -110,7 +107,6 @@
 <img src="http://icon.51.la/icon_0.gif" alt="">
 <!-- <iframe src="http://www.douban.com/" id="frame4444" frameborder="0"></iframe> -->
 <img src="http://img.dwstatic.com/www/1608/334256995145/1470301798117.jpg" onerror="location.href='http://baidu.com'" alt="ddd">
-<script src="http://s1.yy.com/ued_web_static/project/yy8/hot/1.0.4/assets/h5player-hls.min.js"></script>
 
 
 </body>

@@ -17,9 +17,13 @@ AntiHijack是一个可以拦截http劫持的web component。其核心防御原�
 * 本组件使用 [legoFlow](https://legoflow.com/) 进行开发、构建；
 * 本组件无第三方插件依赖；
 
+## DEMO
+
+[DEMO](https://legox.org/assets/legolib/anti-hijack/index.html)
+
 ## 使用
 
-**注意：为了最大化的防劫持，请将脚本放在头部（尽量靠最前面）。该组件主要使用白名单机制，请根据需求的实际情况完善白名单**
+**注意：为了最大化的防劫持，请将脚本放在头部（尽量靠最前面）。`script`与`iframe`使用白名单机制，也就是请确保你页面上所有的`script`和`iframe`的域名都存在于白名单中，请根据需求的实际情况完善白名单**
 
 ### 模块引入方式
 

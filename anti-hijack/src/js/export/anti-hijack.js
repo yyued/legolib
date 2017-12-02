@@ -242,16 +242,33 @@ module.exports = class LegoAntiHijack {
             switch(node.tagName) {
                 // 扫描script与iframe
                 case 'SCRIPT':
+                    if (node.src) {
+                        const hijackType = this.getTestType(node.src);
+
+                        // 只允许白名单通过
+                        if (hijackType !== 'whiteList') {
+                            report.pushQueue(node.tagName, node.src, '');
+                            this.removeRiskNode(node);
+                            // console.warn('src非白名单', node);
+                        }
+                    }
+                    // 扫描script xss
+                    // if (node.innerHTML && this.xssTest(node.innerHTML)) {
+                    //     report.pushQueue(node.tagName, '插入可疑XSS', node.innerHTML);
+                    //     this.removeRiskNode(node);
+                    //     console.warn('script innerHTML xss');
+                    // }
+                break;
+
                 case 'IFRAME':
+                    // iframe内的setAttribute重写
+                    this.rawSetAttribute(node.contentWindow);
 
                     // 过滤iframe srcdoc
-                    if(node.tagName === 'IFRAME') {
-                        this.rawSetAttribute(node.contentWindow); // iframe内的setAttribute重写
-                        if(node.srcdoc) {
-                            report.pushQueue(node.tagName, node.src, node.srcdoc);
-                            this.removeRiskNode(node);
-                            // console.warn('拦截可疑模块srcdoc:', node.srcdoc);
-                        }
+                    if(node.srcdoc) {
+                        report.pushQueue(node.tagName, node.src, node.srcdoc);
+                        this.removeRiskNode(node);
+                        // console.warn('拦截可疑模块srcdoc:', node.srcdoc);
                     }
                     else if (node.src) {
                         const hijackType = this.getTestType(node.src);
@@ -264,12 +281,6 @@ module.exports = class LegoAntiHijack {
                         }
                     }
 
-                    // 扫描script xss
-                    // else if (node.tagName === 'SCRIPT' && node.innerHTML && this.xssTest(node.innerHTML)) {
-                    //     report.pushQueue(node.tagName, '插入可疑XSS', node.innerHTML);
-                    //     this.removeRiskNode(node);
-                    //     console.warn('script innerHTML xss');
-                    // }
                 break;
 
                 // 扫描img（有未知外域图片，暂不匹配白名单）
