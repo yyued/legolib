@@ -2,7 +2,7 @@
 
 ## 说明
 
-通过iframe跨域获取资源服务器(如：assets.dwstatic.com)上的资源文件源码，再利用localStorage方式，将获取到的文件名，版本号，源码缓存保存。
+通过iframe跨域获取资源服务器(如：assets.dwstatic.com)上的资源文件源码，获取到的文件url如果跟资源服务器**同域**则利用localStorage方式，将获取到的文件名，版本号，源码缓存保存。如果获取到的文件url如果跟资源服务器**不同域**，外链加载，不会缓存。
 
 再次进入该页面时，配置文件信息与本地缓存文件信息进行匹配，若本地缓存相同版本号的相同文件，将直接加入页面 ，若文件名或版本号出现不一致的情况时，下载新的资源源码，加入页面，并缓存。
 
@@ -63,7 +63,7 @@ let legoStorage = new LegoStorage(config, isDebug);
 
 | 参数 | 类型 | 默认值 | 备注 |
 |------|-----|-------|------|
-| iframeWindow | String | 无 | iframe的src，iframe跨域获取资源服务器上的资源文件源码传递给当前页面 |
+| iframeWindow | String | 无 | iframe的src，iframe跨域获取资源服务器上的资源文件源码传递给当前页面，iframe页面参考`assets/read-file.html` |
 | assets | Object | {} | 需要加载的CSS/JS文件集对象 |
 | isDebug | Boolean | false | 是否打印Debug信息 |
 

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- saved from url=(0064)https://s1.yy.com/ued_web_static/lib/lego-storage/read-file.html -->
+<html lang="zh-cmn-Hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title> Read File </title>
+</head>
+<body>
+    <script>
+        function receiveMessage(event){
+            var url = event.data.url;
+            if(!url){
+                event.source.postMessage('error url >>' + url, event.origin);
+                return;
+            }
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('GET', url, true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function(){
+            	if(xmlhttp.readyState === 4){
+                    if(xmlhttp.status === 200){
+                        var fileText = xmlhttp.responseText.replace(/[\r\n]/g,'');
+                        event.source.postMessage({
+                            origin : event.data,
+                            require: fileText,
+                        }, event.origin);
+                        return;
+                    }
+                    event.source.postMessage('error require >>' + url, event.origin);
+            	}
+            }
+        }
+        window.addEventListener('message', receiveMessage, false);
+    </script>
+
+
+</body></html>
