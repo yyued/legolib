@@ -3,6 +3,7 @@
 ## 说明
 
 面向移动端的轻量级前端 Components，提供易用、可靠的解决方案。
+已集成到LegoFlow，只需要在编辑项目里面勾选使用logolib就会在`src/js`文件夹下显示legolib组件
 
 * 支持 CMD/AMD/CommonJS 规范，同时支持 `script` 外链引入使用；
 * 移动优先；
